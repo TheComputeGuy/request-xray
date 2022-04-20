@@ -1,0 +1,30 @@
+<div th:switch="${requests}">
+	<h2 th:case="null">No requests logged yet!</h2>
+	<div th:case="*">
+		<h2>Requests and responses</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>URL</th>
+					<th>Request Type</th>
+					<th>Request Headers</th>
+					<th>Request Body</th>
+					<th>Response Status</th>
+					<th>Response Body</th>
+					<th>Response Headers</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="request : ${requests}">
+					<td th:text="${request.url}"></td>
+					<td th:text="${request.requestType}"></td>
+					<td th:text="${request.requestHeaders}"></td>
+					<td th:text="${request.requestBody}"></td>
+					<td th:text="${request.responseStatus}"></td>
+					<td th:text="${request.responseBody}"></td>
+					<td th:text="${request.responseHeaders}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
